@@ -17,29 +17,6 @@
         return $conn->query($sql);   //  Hacemos consulta a la BD
     }
 
-    function armarTabla($result){
-        while ($line =  $result->fetch_assoc()) 
-        {
-            echo "<tr>"; 
-            foreach ($line as $campo => $col_value)
-                {
-                    echo "<td><small>";
-                    if ($campo == "desempeno"){
-                        $_SESSION['promedio'] = ($col_value + $_SESSION['promedio']);
-                        $desempeno = $col_value;
-                        ++$_SESSION['conteo'];
-                    }
-                    echo "$col_value";
-                    echo "</small></td>";
-                }
-                //echo "<td><small>";
-                    //$peso = $desempeno * 0.3;
-                    //echo $peso."%";
-                //echo "</small></td>";    
-            echo "</tr>";
-        }
-    }
-
     function cualMes($mes){
         switch ($mes) {
             case 1:
@@ -78,6 +55,29 @@
             case 12:
                 return "Diciembre ";
                 break;
+        }
+    }
+
+    function armarTabla($result){
+        while ($line =  $result->fetch_assoc()) 
+        {
+            echo "<tr>"; 
+            foreach ($line as $campo => $col_value)
+                {
+                    echo "<td><small>";
+                    if ($campo == "desempeno"){
+                        $_SESSION['promedio'] = ($col_value + $_SESSION['promedio']);
+                        $desempeno = $col_value;
+                        ++$_SESSION['conteo'];
+                    }
+                    echo "$col_value";
+                    echo "</small></td>";
+                }
+                //echo "<td><small>";
+                    //$peso = $desempeno * 0.3;
+                    //echo $peso."%";
+                //echo "</small></td>";    
+            echo "</tr>";
         }
     }
 

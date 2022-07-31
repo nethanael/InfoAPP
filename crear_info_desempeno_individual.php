@@ -15,58 +15,18 @@
         $mes = date("m");
         $ano = date("y");
 
-    function cualMes($mes){
-        switch ($mes) {
-            case 1:
-                return "Enero ";
-                break;
-            case 2:
-                return "Febrero ";
-                break;
-            case 3:
-                return "Marzo ";
-                break;
-            case 4:
-                return "Abril ";
-                break;
-            case 5:
-                return "Mayo ";
-                break;
-            case 6:
-                return "Junio ";
-                break;
-            case 7:
-                return "Julio ";
-                break;
-            case 8:
-                return "Agosto ";
-                break;
-            case 9:
-                return "Setiembre ";
-                break;
-            case 10:
-                return "Octubre ";
-                break;
-            case 11:
-                return "Noviembre ";
-                break;
-            case 12:
-                return "Diciembre ";
-                break;
-        }
-
-    }
-
-    include 'includes/connection.php';                                           // Conexion a BD
-	$query = "SELECT apellidos FROM usuarios WHERE rango = 2";                   // Consulta del campo necesario
-	$resul = mysqli_query($conn, $query, MYSQLI_USE_RESULT);                     //  Hacemos consulta a la BD
-    $datos_test_2D = mysqli_fetch_all($resul);                                   // Construimos el array con los datos
-    $datos_test_1D = array_reduce($datos_test_2D, 'array_merge', array());       //  Convertirmos array multidimensional a uno sencillo
+    include 'includes/funciones.php';
+    include 'includes/connection.php';   // DB Connection
+                                            
+	$query = "SELECT apellidos FROM usuarios WHERE rango = 2";                   // Necessary field
+	$resul = mysqli_query($conn, $query, MYSQLI_USE_RESULT);                     // DB query
+    $datos_test_2D = mysqli_fetch_all($resul);                                   // Built the array with data
+    $datos_test_1D = array_reduce($datos_test_2D, 'array_merge', array());       //  Convert multidim array to 1 dimension array
     
-    //print("<pre>".print_r($datos_test_2D,true)."</pre>");                         //  Debugging para ver array original
-    //print("<pre>".print_r($datos_test_1D,true)."</pre>");                           //  Debugging para ver array nuevo
+    //print("<pre>".print_r($datos_test_2D,true)."</pre>");                      //  Debugging original array
+    //print("<pre>".print_r($datos_test_1D,true)."</pre>");                      //  Debugging new array
     
-    function dynamic_select($the_array, $element_name, $label = '', $init_value = '') { //funcion que crea selects dinamicos
+    function dynamic_select($the_array, $element_name, $label = '', $init_value = '') { //dinamic select creation
         $menu = '';
         if ($label != '') $menu .= '
             <label for="'.$element_name.'">'.$label.'</label>';
@@ -142,7 +102,7 @@
                             <td>Mes:</td>
                             <td>      
 								<?php                                  
-                                    echo cualMes($mes);                         //funcion de mes
+                                    echo cualMes($mes);                         // call month function
 								?> 
                             </td>
                         </tr>
