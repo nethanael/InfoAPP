@@ -67,7 +67,7 @@
 							</tr>
 						</thead>
 						<tr>
-							<td><a href="consultar_act_asignada.php">Actividades Asignadas Pendientes</a></td>
+							<td><a href="consultar_act_asignada_new.php">Actividades Asignadas Pendientes</a></td>
 							<td><a href="consultar_conteo_actividades_2.php">Conteo de Actividades</a></td>
 						</tr>
 						<tr>
