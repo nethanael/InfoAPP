@@ -67,9 +67,7 @@
 		</div>
 		<div class = "row justify-content-center mi_row">
 			<div class="col-6 justify-content-center mi_col bg-secondary text-white">
-				<p class="text-center font-weight-light">Este es un sistema automatizado para la confecci&oacute;n de 
-				informes mensuales del departamento de investigaci&oacute;n y desarrollo. El nombre y apellidos de cada 
-				usuario a sido registrado adecuadamente, por lo tanto, utilizar el sistema responsablemente. No se permite 
+				<p class="text-center font-weight-light">Utilizar el sistema responsablemente. No se permite 
 				el prestamo de usuarios y contrase&ntilde;as. Consultas y sugerencias a: phidalgoa@ice.go.cr </p>
 			</div>
 		</div>

@@ -50,24 +50,8 @@
 <body>
 	<div class = "container mi_cont">
 
-        <div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col bg-info text-white">
-					<!--(row_!Titulo!)-->
-					<p class="text-center h1">Sistema de Informes</p>
-			</div>
-		</div>
-        
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col">
-			<!-- (row_!nav!) -->
-			<p class="text-center font-weight-light">
-				<a href="index.php" class="btn btn-secondary" role="button">Inicio</a>
-				<a href="includes/session_kill.php" class="btn btn-secondary" role="button">Cerrar Sesión</a> 
-				<a href="cambio_pass.php" class="btn btn-secondary" role="button">Cambiar Contraseña</a><br>
-				Usuario: <?php echo $_SESSION['USUARIO'];?>
-			</p>
-			</div>
-		</div>
+	<?php include 'includes/header.php'; ?>
+	<?php include 'includes/navBar.php'; ?>
           
 		<div class = "row justify-content-center mi_row">
 
@@ -114,16 +98,13 @@
                 }
             ?>
             </div>
-		<a href="index.php">Volver</a>
+			<div class = "row justify-content-center mi_row">
+				<div class = "col-4 mi_td"><a class="btn btn-info" href="index.php">Volver</a></div>
+			</div>
         </div> 
 
 
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col blockquote-footer">
-				<!--(row_!abajo!)-->
-				<p class="text-center">- Desarrollado por Laboratorio I + D - 2020 - </p>
-			</div>
-		</div>
+		<?php include 'includes/footer.php'; ?>
 
 	</div>
 </body>

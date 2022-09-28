@@ -42,38 +42,33 @@
 		<?php include 'includes/navBar.php'; ?>
 
 		<div class="row justify-content-center mi_row">
-				<div class="col-6 justify-content-center mi_col">
-					<!-- (row_!Centro!) -->
-						<table class="table">
-						<thead class="thead-light">
-							<tr>
-								<th class="mi_td" colspan="2">Menu Principal de <?php echo $_SESSION['NOMBRE'];?>:</th>
-							</tr>
-						</thead>
-						<tr>
-							<td class="mi_td"><a class="btn btn-light btn-block" href="consultar_act_asignada.php">Actividades Pendientes</a></td>
-							<td class="mi_td"><a class="btn btn-light btn-block" href="consultar_conteo_actividades_2.php">Conteo de Actividades</a></td>
-						</tr>
-						<tr>
-							<td class="mi_td"><a class="btn btn-light btn-block" href="consultar_act_general.php">Consulta General</a></td>
-							<td class="mi_td"><a class="btn btn-light btn-block" href="consultar_act_personal.php">Mi Historico</a></td>
-						</tr>
-						<tr>
-							<th class="mi_td" colspan="2">Generación de informes:<th>
-						</tr>
-						<tr>
-							<td class="mi_td"><a class="btn btn-light btn-block" href="crear_info_lo_rank.php">Informe Actividades Mensual</a></td>
-							<td class="mi_td"><a class="btn btn-light btn-block" href=<?php echo $link; ?> >Informe Desempe&ntilde;o Mensual</a></td>
-						</tr>
-					</table>
-				</div>
+
+            <div class="col mi_col"></div>
+
+            <div class="col mi_col">
+                <!-- (row_!Centro!) -->
+
+                <div class="card" style="width: 18rem;">
+                    <img src="imgs/logo_1.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Este es un sistema automatizado para la confecci&oacute;n de 
+            informes mensuales del departamento y medici&oacute;n del desempe&ntilde;o de Investigaci&oacute;n y Desarrollo.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Diseño UI: <b>Ing. Pablo Hidalgo, Ing. Esteban Bolanos.</b></li>
+                        <li class="list-group-item">Desarrollador: <b>Ing. Pablo Hidalgo.</b></li>
+                        <li class="list-group-item">Requerimiento por: <b>Ing. Luis Carlos Duran.</b></li>
+                    </ul>
+                </div>
 			</div>
 
-		<div class = "row justify-content-center mi_row">
-			<div class="col-6 justify-content-center mi_col">
-				<div class="p-3 mb-2 bg-success text-white">Mensaje Importante: <?php echo $mensaje_personal;?></div>
+            <div class="col mi_td"></div>
+
 			</div>
-		</div>
+
+			<div class = "row justify-content-center mi_row">
+				<div class = "col mi_td"><a class="btn btn-info" href="index.php">Volver</a></div>
+			</div>
 
 		<?php include 'includes/footer.php'; ?>
 

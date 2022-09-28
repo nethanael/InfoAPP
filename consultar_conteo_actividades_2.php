@@ -73,24 +73,8 @@
 <body>
 	<div class = "container mi_cont">
 
-    <div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col bg-info text-white">
-					<!--(row_!Titulo!)-->
-					<p class="text-center h1">Sistema de Informes</p>
-			</div>
-		</div>
-			
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col">
-			<!-- (row_!nav!) -->
-			<p class="text-center font-weight-light">
-				<a href="index.php" class="btn btn-secondary" role="button">Inicio</a>
-				<a href="includes/session_kill.php" class="btn btn-secondary" role="button">Cerrar Sesión</a> 
-				<a href="cambio_pass.php" class="btn btn-secondary" role="button">Cambiar Contraseña</a><br>
-				Usuario: <?php echo $_SESSION['USUARIO'];?>
-			</p>
-			</div>
-		</div>
+	<?php include 'includes/header.php'; ?>
+	<?php include 'includes/navBar.php'; ?>
           
 		<div class = "row justify-content-center mi_row">
             <div class="col-3 mi_col">
@@ -101,10 +85,10 @@
                 <table class="table table-sm table-striped">
                     <thead class="thead-light">
                         <tr>
-                            <th colspan="2">Actividades asignadas:</th>
+                            <th class="mi_td" colspan="2">Actividades asignadas:</th>
 						</tr>
 						<tr>
-							<th colspan="2"> 
+							<th class="mi_td" colspan="2"> 
 								Mes:   
 								<?php                                  
 									echo cualMes($mes);                         //funcion de mes
@@ -123,20 +107,20 @@
                                 //echo $query2;
                                 $resul1 = mysqli_query($conn, $query1, MYSQLI_USE_RESULT);
                                 $data1 = mysqli_fetch_assoc($resul1);  
-                                echo '<tr><td>'.$who_is_this.":</td>";
-                                echo '<td>'.$data1["total"]."</td></tr>";
+                                echo '<tr><td class="mi_td">'.$who_is_this.":</td>";
+                                echo '<td class="mi_td">'.$data1["total"]."</td></tr>";
 
                                 include 'includes/connection.php';  
                                 $query2 = "SELECT COUNT(*) as total FROM actividades WHERE mes LIKE '$mes' AND ano LIKE '$ano' ";
                                 //echo $query2;
                                 $resul2 = mysqli_query($conn, $query2, MYSQLI_USE_RESULT);
                                 $data2 = mysqli_fetch_assoc($resul2);  
-                                echo '<tr><td>Total del área:</td>';
-                                echo '<td>'.$data2["total"].'</td></tr>';
+                                echo '<tr><td class="mi_td">Total del área:</td>';
+                                echo '<td class="mi_td">'.$data2["total"].'</td></tr>';
 
                                 $data3 = ($data1["total"] * 100) / $data2["total"];  
-                                echo '<tr><td>Porcentaje:</td>';
-                                echo '<td>'.round($data3, 2).'%</td></tr>';
+                                echo '<tr><td class="mi_td">Porcentaje:</td>';
+                                echo '<td class="mi_td">'.round($data3, 2).'%</td></tr>';
 
                                 //include 'includes/connection.php';  
                                 //$query3 = "SELECT COUNT(*) as total FROM actividades WHERE mes LIKE '$mes' AND ano LIKE '$ano' ";
@@ -152,17 +136,12 @@
                                 //var_dump($dataPoints);
                         ?>   
 
-                <tr><td colspan="2"><a href="index.php">Volver</a></td></tr>  
+                <tr><td class="mi_td" colspan="2"><a class="btn btn-sm btn-info" href="index.php">Volver</a></td></tr>  
                 </table>
             </div>
 		</div>
 
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col blockquote-footer">
-				<!--(row_!abajo!)-->
-				<p class="text-center">- Desarrollado por Laboratorio I + D - 2020 - </p>
-			</div>
-		</div>	
+        <?php include 'includes/footer.php'; ?>
 
 	</div>
 </body>

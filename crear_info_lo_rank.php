@@ -66,38 +66,21 @@
 <body>
 	<div class = "container mi_cont">
 
-    <div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col bg-info text-white">
-					<!--(row_!Titulo!)-->
-					<p class="text-center h1">Sistema de Informes</p>
-			</div>
-		</div>
-			
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col">
-			<!-- (row_!nav!) -->
-			<p class="text-center font-weight-light">
-				<a href="index.php" class="btn btn-secondary" role="button">Inicio</a>
-				<a href="includes/session_kill.php" class="btn btn-secondary" role="button">Cerrar Sesión</a> 
-				<a href="cambio_pass.php" class="btn btn-secondary" role="button">Cambiar Contraseña</a><br>
-				Usuario: <?php echo $_SESSION['USUARIO'];?>
-			</p>
-			</div>
-		</div>
+	<?php include 'includes/header.php'; ?>
+	<?php include 'includes/navBar.php'; ?>
           
         <div class = "row justify-content-center mi_row">
 			<div class = "col-6 mi_col">
 				<!-- (row_!Centro!) -->
                 <form name="" method="post" action="scripts/crear_info_lo_rank.php"> 
                     <table class="table table-striped">
-                        <thead class="thead-light">
+                        <thead class="thead-dark">
                             <tr>
-                                <th colspan="2">Crear informe Mensual:</th>
+                                <th class="mi_td" colspan="2">Crear informe Mensual:</th>
                             </tr>
                         </thead>
                         <tr>
-                            <td></td>
-                            <td>
+                            <td class="mi_td" colspan="2">
                                 <img src="imgs/crear_info.png"><br>
                                     <span class="text-danger">
                                         <?php echo $_SESSION['INFO_ERROR'];?>
@@ -107,8 +90,8 @@
                         <tr>
                             <td>Importante:</td>
                             <td>      
-                                Para generar el informe se tomarán en cuenta todas las actividades en las que ha estado asignado 
-                                y que estén marcadas como "Listas" para informe.
+                                Para generar el informe el sistema tomar&aacute; todas las actividades asignadas 
+                                y que usted o sus compa&ntilde;eros marcaron como "Listas" para informe.
                             </td>
                         </tr>
                         <tr>
@@ -126,23 +109,18 @@
                             </td>
                         </tr>
                         <tr>
-                                <td><input type="submit" name="Submit" value="Crear"></td>
+                                <td class="mi_td" colspan="2"><input class="btn btn-warning"type="submit" name="Submit" value="Crear"></td>
                                 <td><?php echo $_SESSION['INFO_ERROR'];?></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><a href="index.php">Volver</a></td>
+                            <td class="mi_td" colspan="2"><a class="btn btn-info" href="index.php">Volver</a></td>
                         </tr>
                     </table>
                 </form>
             </div>
         </div>
         
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col blockquote-footer">
-				<!--(row_!abajo!)-->
-				<p class="text-center">- Desarrollado por Laboratorio I + D - 2020 - </p>
-			</div>
-		</div>
+        <?php include 'includes/footer.php'; ?>
 
 	</div>
 </body>
