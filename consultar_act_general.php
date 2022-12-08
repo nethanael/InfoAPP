@@ -30,7 +30,7 @@
 	<?php include 'includes/navBar.php'; ?>
           
 		<div class = "row justify-content-center mi_row">
-			<div class = "table-responsive">
+			<div class = "table-responsive mi_scrollable_div">
 				<!-- (row_!Centro!) -->
                 <table class="table table-sm table-striped table-hover">
                     <thead class="thead-dark">

@@ -53,11 +53,8 @@
 	<?php include 'includes/header.php'; ?>
 	<?php include 'includes/navBar.php'; ?>
           
-		<div class = "row justify-content-center mi_row">
-
+		<div class = "row justify-content-center mi_row mi_scrollable_div">
             <?php
-
-
                 foreach ($resul as $row) {
 
 					$chance = dateDifference($hoy,$row["fecha_entrega"]);

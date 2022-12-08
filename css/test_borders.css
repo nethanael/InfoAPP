@@ -24,3 +24,9 @@
 				padding-bottom: 50px;
 				padding-left: 20px;
 			}
+
+			.mi_scrollable_div
+			{
+				overflow: scroll;
+				height: 450px;
+			}

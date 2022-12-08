@@ -67,43 +67,45 @@
                     echo "<hr>";
                     foreach ($line as $campo => $col_value)
                         {
-                            if ($col_value == "") {echo "";}
-                            if ($campo == "titulo")
+                            if ($col_value != "")
                             {
-                                echo "<strong>";
-                            }
-                            if ($campo == "descripcion")
-                            {
-                                echo "<i>";
-                            }
-                            if ($campo == "avance_1")
-                            {
-                                echo "<strong>Actividades realizadas: </strong>";
-                                echo "<br>";
-                                echo "<br>";
-                            }
-                            if ($campo == "desempeno")
-                            {
-                                echo "Se entrega con un % de desempe&ntilde;o de ";
-                            }
-                            if ($campo == "estado")
-                            {
-                                echo "Esta actividad se encuentra ";
-                            }
+                                if ($campo == "titulo")
+                                {
+                                    echo "<strong>";
+                                }
+                                if ($campo == "descripcion")
+                                {
+                                    echo "<i>";
+                                }
+                                if ($campo == "avance_1")
+                                {
+                                    echo "<strong>Actividades realizadas: </strong>";
+                                    echo "<br>";
+                                    echo "<br>";
+                                }
+                                if ($campo == "desempeno")
+                                {
+                                    echo "Se entrega con un % de desempe&ntilde;o de ";
+                                }
+                                if ($campo == "estado")
+                                {
+                                    echo "Esta actividad se encuentra ";
+                                }
 
-                            echo "$col_value";
+                        echo "$col_value";
 
-                            if ($campo == "titulo")
-                            {
-                                echo "</strong>";
+                                if ($campo == "titulo")
+                                {
+                                    echo "</strong>";
+                                }
+                                if ($campo == "descripcion")
+                                {
+                                    echo "</i>";
+                                
+                                }
+                                echo "<br>";
+                                echo "<br>";  
                             }
-                            if ($campo == "descripcion")
-                            {
-                                echo "</i>";
-                            
-                            }
-                            echo "<br>";
-                            echo "<br>";               
                         }
                     echo "</td>";
                     echo "</tr>";
@@ -155,7 +157,7 @@
 			<div class = "col-10 mi_col">
 				<!-- (row_!Centro!) -->
                 <div id="exportContent">
-                <table class="table-responsive" id="tablin">
+                <table class="table-responsive mi_tabla" id="tablin">
                     <thead class="thead-light">
                         <tr>
                             <th colspan="2"><h1>Investigación y Desarrollo - Sistemas Fijos</h1></th>
