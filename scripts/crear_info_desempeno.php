@@ -16,7 +16,7 @@
     include '../includes/connection.php';                                           // Conexion a BD
     $sql= "SELECT codigo_actividad, tipo_actividad, tipo_actividad_2, tipo_actividad_3, 
     titulo, descripcion, asignado_1, asignado_2, asignado_3, 
-    estado, informe, prioridad, fecha_solicitud, fecha_entrega, fecha_real, desempeno 
+    estado, fecha_solicitud, fecha_entrega, fecha_real, desempeno 
     FROM actividades WHERE mes LIKE '$mes' AND ano LIKE '$ano' AND informe LIKE 'listo'"; // Consulta del campo necesario
 	$resul = $conn->query($sql);                                                 //  Hacemos consulta a la BD
 ?>
@@ -33,32 +33,15 @@
 <body>
 	<div class = "container mi_cont">
 
-    <div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col bg-info text-white">
-					<!--(row_!Titulo!)-->
-					<p class="text-center h1">Sistema de Informes</p>
-			</div>
-		</div>
-			
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col">
-			<!-- (row_!nav!) -->
-			<p class="text-center font-weight-light">
-				<a href="../index.php" class="btn btn-secondary" role="button">Inicio</a>
-				<a href="../includes/session_kill.php" class="btn btn-secondary" role="button">Cerrar Sesi&oacute;n</a> 
-				<a href="../cambio_pass.php" class="btn btn-secondary" role="button">Cambiar Contraseña</a><br>
-				Usuario: <?php echo $_SESSION['USUARIO'];?>
-			</p>
-			</div>
-		</div>
+	    <?php include '../includes/header.php'; ?>
           
 		<div class = "row justify-content-center mi_row">
 			<div class = "table-responsive">
 				<!-- (row_!Centro!) -->
                 <table class="table table-sm table-striped" id="tblData">
-                    <thead class="thead-light">
+                    <thead class="thead-dark">
                         <tr>
-                            <th colspan="2">Actividades Totales:</th>
+                            <th class="mi_td" colspan="14">Actividades Totales:</th>
                         </tr>
                         <tr>
                             <td colspan="14">
@@ -79,8 +62,6 @@
                         <th><small>Asignado a:</small></th>
                         <th><small>Asignado a:</small></th>
                         <th><small>Estado:</small></th>
-                        <th><small>¿Listo informe?</small></th>
-                        <th><small>Prioridad:</small></th>
                         <th><small>Fecha Solicitud:</small></th>	
                         <th><small>Fecha Entrega:</small></th>
                         <th><small>Fecha Real:</small></th>
@@ -112,17 +93,11 @@
 
         <div class = "row justify-content-center mi_row">
                 <div class = "col-6 mi_col">
-                    <p class="text-center"><a href="../index.php">Volver</a></p>  
+                    <p class="text-center"><a class="btn btn-info" href="../index.php">Volver</a></p>  
                 </div>                
         </div>
 
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col blockquote-footer">
-				<!--(row_!abajo!)-->
-
-				<p class="text-center">- Desarrollado por Laboratorio I + D - 2020 - </p>
-			</div>
-		</div>
+        <?php include '../includes/footer.php'; ?>
 
 	</div>
 </body>

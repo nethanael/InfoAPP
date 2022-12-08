@@ -52,12 +52,7 @@
 <body>
 	<div class = "container mi_cont">
 
-    <div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col bg-info text-white">
-					<!--(row_!Titulo!)-->
-					<p class="text-center h1">Sistema de Informes</p>
-			</div>
-		</div>
+        <?php include '../includes/header.php'; ?>
 			
 		<div class = "row justify-content-center mi_row">
 			<div class = "col-6 mi_col">
@@ -146,22 +141,18 @@
 
                 </table>
             </div>
-        <button class="btn btn-warning" onclick="exportTableToExcel('tblData', 'informe_desempeno')">Exportar a Excel</button><br>
+            <button class="btn btn-warning" onclick="exportTableToExcel('tblData', 'informe_desempeno')">
+                Exportar a Excel
+            </button>
 		</div>
 
         <div class = "row justify-content-center mi_row">
                 <div class = "col-6 mi_col">
-                    <p class="text-center"><a href="../index.php">Volver</a></p>  
+                    <p class="text-center"><a class="btn btn-info" href="../index.php">Volver</a></p>
                 </div>                
         </div>
 
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col blockquote-footer">
-				<!--(row_!abajo!)-->
-
-				<p class="text-center">- Desarrollado por Laboratorio I + D - 2020 - </p>
-			</div>
-		</div>
+        <?php include '../includes/footer.php'; ?>
 
 	</div>
 <script src="export_excel.js"></script> 

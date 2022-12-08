@@ -18,14 +18,26 @@
     
     include 'includes/connection.php';                                           // Conexion a BD
 
-    $query = "SELECT apellidos FROM usuarios WHERE rango LIKE '2' or rango LiKE '3'";              // Consulta del campo necesario
-	$resul = mysqli_query($conn, $query, MYSQLI_USE_RESULT);                     //  Hacemos consulta a la BD
-    $datos_test_2D = mysqli_fetch_all($resul);                                   // Construimos el array con los datos
-    $datos_test_1D = array_reduce($datos_test_2D, 'array_merge', array());       //  Convertirmos array multidimensional a uno sencillo
+    //Sacar los apellidos de la tabla de usuarios
+
+    // Consulta del campo necesario
+    $query = "SELECT apellidos FROM usuarios WHERE rango LIKE '2' or rango LiKE '3'";
+
+    //  Hacemos consulta a la BD
+	$resul = mysqli_query($conn, $query, MYSQLI_USE_RESULT);    
+
+    // Construimos el array con los datos
+    $datos_apellidos_2D = mysqli_fetch_all($resul);   
+
+    //  Convertirmos array multidimensional a uno sencillo                                                   
+    $datos_apellidos_1D = array_reduce($datos_apellidos_2D, 'array_merge', array());       
     
-    //print("<pre>".print_r($datos_test_2D,true)."</pre>");                         //  Debugging para ver array original
-    //print("<pre>".print_r($datos_test_1D,true)."</pre>");                           //  Debugging para ver array nuevo
+    //print("<pre>".print_r($datos_test_2D,true)."</pre>");     //  Debugging para ver array original
+    //print("<pre>".print_r($datos_test_1D,true)."</pre>");     //  Debugging para ver array nuevo
     
+    
+    //Sacar el total de actividades del mes----------------------------------------------------
+
     include 'includes/connection.php';  
     $queryTOTAL = "SELECT COUNT(*) as total FROM actividades WHERE mes LIKE '$mes' AND ano LIKE '$ano' ";
     //echo $query2;
@@ -33,6 +45,8 @@
     $dataTOTAL = mysqli_fetch_assoc($resulTOTAL);  
     //echo $dataTOTAL[total];
 	
+    //Funcion para transformar el numer de mes en string con nombre-----------------------------
+
 	function cualMes($mes){
         switch ($mes) {
             case 1:
@@ -72,7 +86,6 @@
                 return "Diciembre ";
                 break;
         }
-
     }
 
 ?>
@@ -92,8 +105,24 @@
 <body>
 	<div class = "container mi_cont">
 
-	    <?php include 'includes/header.php'; ?>
-	    <?php include 'includes/navBar.php'; ?>
+        <div class = "row justify-content-center mi_row">
+			<div class = "col-6 mi_col bg-info text-white">
+					<!--(row_!Titulo!)-->
+					<p class="text-center h1">Sistema de Informes</p>
+			</div>
+		</div>
+			
+		<div class = "row justify-content-center mi_row">
+			<div class = "col-6 mi_col">
+			<!-- (row_!nav!) -->
+			<p class="text-center font-weight-light">
+				<a href="index.php" class="btn btn-secondary" role="button">Inicio</a>
+				<a href="includes/session_kill.php" class="btn btn-secondary" role="button">Cerrar Sesi&oacute;n</a> 
+				<a href="cambio_pass.php" class="btn btn-secondary" role="button">Cambiar Contraseña</a><br>
+				Usuario: <?php echo $_SESSION['USUARIO'];?>
+			</p>
+			</div>
+		</div>
           
 		<div class = "row justify-content-center mi_row">
             <div class="col-6 mi_col">
@@ -101,9 +130,9 @@
             </div>
 			<div class = "col-6 mi_col">
                 <table class="table table-sm table-striped">
-                    <thead class="thead-dark">
+                    <thead class="thead-light">
                         <tr>
-                            <th class="mi_td" colspan="4">Asignaci&oacute;n de actividades para el mes de <?php echo cualMes($mes);?></th>
+                            <th colspan="4">Asignaci&oacute;n de actividades para el mes de <?php echo cualMes($mes);?></th>
 						</tr>
                         <tr>
                             <th>Colaborador</th>
@@ -115,7 +144,7 @@
 					<tr>
                         <?php
                             $phpDataPoints = array();                       //se crear array de php para meter los datos del grafico
-                            foreach ($datos_test_1D as $valor){
+                            foreach ($datos_apellidos_1D as $valor){
                                 include 'includes/connection.php';  
                                 $query2 = "SELECT COUNT(*) as total FROM actividades WHERE (asignado_1 LIKE '$valor' OR asignado_2 LIKE '$valor' OR asignado_3 LIKE '$valor') AND mes LIKE '$mes' AND ano LIKE '$ano'";
                                 //echo $query2;
@@ -138,11 +167,15 @@
                         ?>   
                 </table>
             </div>
-            <a class="btn btn-info" href="index.php">Volver</a>
+            <a href="index.php">Volver</a>
 		</div>
 
-        <?php include 'includes/footer.php'; ?>
-
+		<div class = "row justify-content-center mi_row">
+			<div class = "col-6 mi_col blockquote-footer">
+				<!--(row_!abajo!)-->
+				<p class="text-center">- Desarrollado por Laboratorio I + D - 2020 - </p>
+			</div>
+		</div>	
 	</div>
 </body>
     <script>

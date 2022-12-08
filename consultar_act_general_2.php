@@ -65,7 +65,7 @@
                     <table class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
-                                <th colspan="2">Detalles de actividad:</th>
+                                <th class="mi_td" colspan="2">Detalles de actividad:</th>
                             </tr>
                         </thead>
                         <tr>
@@ -181,12 +181,8 @@
                 </form>
             </div>
         </div>
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col blockquote-footer">
-				<!--(row_!abajo!)-->
-				<p class="text-center">- Desarrollado por Laboratorio I + D - 2020 - </p>
-			</div>
-		</div>
+
+        <?php include 'includes/footer.php'; ?>
 
 	</div>
 </body>

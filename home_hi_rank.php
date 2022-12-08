@@ -26,24 +26,8 @@
 <body>
 	<div class = "container mi_cont">
 
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col bg-info text-white">
-					<!--(row_!Titulo!)-->
-					<p class="text-center h1">Sistema de Informes</p>
-			</div>
-		</div>
-			
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col">
-			<!-- (row_!nav!) -->
-			<p class="text-center font-weight-light">
-				<a href="index.php" class="btn btn-secondary" role="button">Inicio</a>
-				<a href="includes/session_kill.php" class="btn btn-secondary" role="button">Cerrar Sesi&oacute;n</a> 
-				<a href="cambio_pass.php" class="btn btn-secondary" role="button">Cambiar Contraseña</a><br>
-				Usuario: <?php echo $_SESSION['USUARIO'];?>
-			</p>
-			</div>
-		</div>
+		<?php include 'includes/header.php'; ?>
+		<?php include 'includes/navBar.php'; ?>
 		
 		<div class = "row justify-content-center mi_row">
 			<div class = "col-6 mi_col">
@@ -51,54 +35,53 @@
 					<table class="table">
 						<thead class="thead-light">
 							<tr>
-								<th colspan="2"><p class="text-center h5">Men&uacute; Principal (Asignador):</p></th>
+								<th colspan="2"><p class="mi_td h5">Men&uacute; Principal (Asignador):</p></th>
 							</tr>
 						</thead>
 						<tr>
 							<td colspan="2">
-								<p class="text-center">Gesti&oacute;n de Actividades</p>
+								<p class="mi_td h5">Gesti&oacute;n de Actividades</p>
 							</td>
 						</tr>
 						<tr>
-							<td><p class="text-center"><a href="crear_act.php">Crear</a></p></td>
-							<td><p class="text-center"><a href="editar_actividad.php">Editar</a></p></td>
+							<td><p class="mi_td"><a class="btn btn-light btn-block" href="crear_act.php">Crear</a></p></td>
+							<td><p class="mi_td"><a class="btn btn-light btn-block" href="editar_actividad.php">Editar</a></p></td>
 						</tr>
 						<tr>
-							<td><p class="text-center"><a href="reactivar_act.php">Reactivar</a></p></td>
-							<td><p class="text-center"><a href="reabrir_act.php">Devolver</a></p></td>
+							<td><p class="mi_td"><a class="btn btn-light btn-block" href="reactivar_act.php">Reactivar</a></p></td>
+							<td><p class="mi_td"><a class="btn btn-light btn-block" href="reabrir_act.php">Devolver</a></p></td>
 						</tr>
 						<tr>
-							<td colspan="2"><p class="text-center"><a href="crear_mensaje.php">Enviar Mensaje Personal</a></p></td>
+							<td colspan="2"><p class="mi_td"><a class="btn btn-light btn-block" href="crear_mensaje.php">Enviar Mensaje Personal</a></p></td>
 						</tr>
 						<tr>
 							<td colspan="2">
-								<p class="text-center">An&aacutelisis Actividades:</p>
+								<p class="mi_td h5">An&aacutelisis Actividades</p>
 							</td>
 						</tr>
 						<tr>
 						<tr>
-							<td><p class="text-center"><a href="consultar_conteo_actividades.php">Distribuci&oacute;n de las actividades</a></p></td>
-							<td><p class="text-center"><a href="consultar_act_mes.php">Trabajos pendientes</a></p></td>
+							<td><p class="mi_td"><a class="btn btn-light btn-block" href="consultar_conteo_actividades.php">Distribuci&oacute;n de las actividades</a></p></td>
+							<td><p class="mi_td"><a class="btn btn-light btn-block" href="consultar_act_mes.php">Trabajos pendientes</a></p></td>
 						</tr>
 						<tr>
-							<td><p class="text-center"><a href="consultar_conteo_actividades_total.php">Conteo Total del Mes</a></p></td>
-							<td><p class="text-center"><a href="crear_info.php">Crear Informe Mensual</a></p></td>
+							<td><p class="mi_td"><a class="btn btn-light btn-block" href="consultar_conteo_actividades_total.php">Conteo Total del Mes</a></p></td>
+							<td><p class="mi_td"><a class="btn btn-light btn-block" href="scripts/crear_info.php">Crear Informe Mensual</a></p></td>
 						</tr>
 						<tr>
-							<td colspan="2"><p class="text-center"><a href="consultar_act_general.php">Actividades Totales del Sistema</a></p></td>
+							<td colspan="2"><p class="mi_td"><a class="btn btn-light btn-block" href="consultar_act_general.php">Actividades Totales del Sistema</a></p></td>
 						</tr>
 						<tr>
 							<td colspan="2">
-								<p class="text-center">An&aacutelisis Desempe&ntildeo:</p>
+								<p class="mi_td h5">An&aacutelisis Desempe&ntildeo</p>
 							</td>
 						</tr>
 						<tr>
-							<td><p class="text-center"><a href="crear_info_desempeno_individual.php">Crear Informe Individual Técnico</a></p></td>
-							<td colspan="1"><p class="text-center"><a href="crear_info_desempeno.php">Crear Informe Desempe&ntilde;o General</a></p></td>
+							<td><p class="mi_td"><a class="btn btn-light btn-block" href="crear_info_desempeno_individual.php">Crear Informe Individual Técnico</a></p></td>
+							<td><p class="mi_td"><a class="btn btn-light btn-block" href="crear_info_desempeno_individual_admin.php">Crear Informe Individual Administrativo</a></p></td>
 						</tr>
 						<tr>
-							<td><p class="text-center"><a href="crear_info_desempeno_individual_admin.php">Crear Informe Individual Administrativo</a></p></td>
-							<td colspan="2"><p class="text-center"><a href="">*</a></p></td>
+							<td colspan="2"><p class="mi_td"><a class="btn btn-light btn-block" href="crear_info_desempeno.php">Crear Informe Desempe&ntilde;o General</a></p></td>
 						</tr>
 					</table>
 			</div>
@@ -114,12 +97,8 @@
 			</div>
 		</div>
 
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col blockquote-footer">
-				<!--(row_!abajo!)-->
-				<p class="text-center">- Desarrollado por Laboratorio I + D - 2020 - </p>
-			</div>
-		</div>
+		<?php include 'includes/footer.php'; ?>
+
 	</div>
 </body>
 </html>

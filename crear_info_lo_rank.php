@@ -109,8 +109,8 @@
                             </td>
                         </tr>
                         <tr>
-                                <td class="mi_td" colspan="2"><input class="btn btn-warning"type="submit" name="Submit" value="Crear"></td>
-                                <td><?php echo $_SESSION['INFO_ERROR'];?></td>
+                                <td class="mi_td" colspan="2"><input class="btn btn-warning" type="submit" name="Submit" value="Crear"></td>
+                                <td class="mi_td"><?php echo $_SESSION['INFO_ERROR'];?></td>
                         </tr>
                         <tr>
                             <td class="mi_td" colspan="2"><a class="btn btn-info" href="index.php">Volver</a></td>

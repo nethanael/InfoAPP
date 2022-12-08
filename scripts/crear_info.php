@@ -53,7 +53,7 @@
         if ($data->num_rows > 0)                            //aca validamos que haya actividades de cierto tipo
         {                                                   //si no lo hay entonces brinca al siguiente tipo de acitividad
             echo "<tr>";
-            echo "<td><h3>";
+            echo '<td class="mi_td"><h3>';
             echo $label;
             echo "</h3></td>";
             echo "</tr>";
@@ -65,35 +65,37 @@
                     echo "<hr>";
                     foreach ($line as $campo => $col_value)
                         {
-                            if ($col_value == "") {echo "";}
-                            if ($campo == "titulo")
+                            if ($col_value != "")
                             {
-                                echo "<strong>";
-                            }
+                                if ($campo == "titulo")
+                                {
+                                    echo "<strong>";
+                                }
                             if ($campo == "descripcion")
-                            {
-                                echo "<i>";
-                            }
+                                {
+                                    echo "<i>";
+                                }
                             if ($campo == "avance_1")
-                            {
-                                echo "<strong>Actividades realizadas: </strong>";
-                                echo "<br>";
-                                echo "<br>";
-                            }
+                                {
+                                    echo "<strong>Actividades realizadas: </strong>";
+                                    echo "<br>";
+                                    echo "<br>";
+                                }
 
                             echo "$col_value";
 
                             if ($campo == "titulo")
-                            {
-                                echo "</strong>";
-                            }
+                                {
+                                    echo "</strong>";
+                                }
                             if ($campo == "descripcion")
-                            {
-                                echo "</i>";
-                            
-                            }
+                                {
+                                    echo "</i>";
+                                
+                                }
                             echo "<br>";
-                            echo "<br>";               
+                            echo "<br>";  
+                            }
                         }
                     echo "</td>";
                     echo "</tr>";
@@ -138,45 +140,28 @@
 <body>
 	<div class = "container mi_cont">
 
-    <div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col bg-info text-white">
-					<!--(row_!Titulo!)-->
-					<p class="text-center h1">Sistema de Informes</p>
-			</div>
-		</div>
-			
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col">
-			<!-- (row_!nav!) -->
-			<p class="text-center font-weight-light">
-				<a href="../index.php" class="btn btn-secondary" role="button">Inicio</a>
-				<a href="../includes/session_kill.php" class="btn btn-secondary" role="button">Cerrar Sesi&oacute;n</a> 
-				<a href="../cambio_pass.php" class="btn btn-secondary" role="button">Cambiar Contraseña</a><br>
-				Usuario: <?php echo $_SESSION['USUARIO'];?>
-			</p>
-			</div>
-		</div>
+        <?php include '../includes/header.php'; ?>
 
     	<div class = "row justify-content-center mi_row">
 			<div class = "col-10 mi_col">
 				<!-- (row_!Centro!) -->
                 <div id="exportContent">
-                <table class="table-responsive" id="tablin">
-                    <thead class="thead-light">
+                <table class="table-responsive mi_tabla" id="tablin">
+                    
                         <tr>
-                            <th colspan="2"><h1>Investigaci&oacute;n y Desarrollo - Sistemas Fijos</h1></th>
+                            <th class="mi_td" colspan="2"><h1>Investigaci&oacute;n y Desarrollo - Sistemas Fijos</h1></th>
                         </tr>
                         <tr>
-                            <td colspan="2"><h2>Informe Mensual de actividades</h2></td>
+                            <td class="mi_td" colspan="2"><h2>Informe Mensual de Actividades</h2></td>
                         </tr>
                         <tr>
-                            <td colspan="2">Correspondiente al mes de 
+                            <td class="mi_td" colspan="2">Correspondiente al mes de 
                             <?php                                  
                                     echo cualMes($mes)."del 20".$ano;                         //funcion de mes
                                 ?> 
                             </td>
                         </tr>
-                    </thead>
+                   
                         <?php  
                             actividadesInforme($resul00, "Proyectos");
                             actividadesInforme($resul01, "Investigaci&oacuten");
@@ -200,16 +185,11 @@
 
         <div class = "row justify-content-center mi_row">
                 <div class = "col-10 mi_col">
-                    <p class="text-center"><a href="../index.php">Volver</a></p>
+                    <p class="text-center"><a class="btn btn-info" href="../index.php">Volver</a></p>
                 </div>                
         </div>
         
-		<div class = "row justify-content-center mi_row">
-			<div class = "col-6 mi_col blockquote-footer">
-				<!--(row_!abajo!)-->
-				<p class="text-center">- Desarrollado por Laboratorio I + D - 2020 - </p>
-			</div>
-		</div>
+        <?php include '../includes/footer.php'; ?>
 
 	</div>
 </body>
